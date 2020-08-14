@@ -1,0 +1,41 @@
+.Menu-SideBar > ul {
+    list-style-type: none;
+    width: 100%;
+    padding-left: 0px;
+}
+
+.Menu-SideBar > ul > li {
+    display: inline-block;
+    height: 40px;
+    padding: 5px 0px;
+    margin: 0px 0px;
+    width: inherit;
+}
+
+.Menu-SideBar > ul > li > a {
+    text-decoration: none;
+    white-space: nowrap;
+    color: #000;
+    vertical-align: middle;
+    display: inline-block;
+    height: inherit;
+    padding: 5px 0px 5px 5px;
+    width: inherit;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+}
+
+.Menu-SideBar > ul > li:hover {
+    background-color: #DDD;
+    cursor: pointer;
+}
+
+.Menu-SideBar > ul > li.Menu-Selected {
+    background-color: #AAA;
+}
+
+.SideBar-Icon {
+    width: 90% !important;
+    height: auto !important;
+}

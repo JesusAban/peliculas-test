@@ -1,0 +1,16 @@
+.SideBar {
+    top: 0px;
+    z-index: 1000;
+    box-shadow: 0px 0px 8px 0px #000;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #FFF;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.SideBar{
+    width: 200px;
+}

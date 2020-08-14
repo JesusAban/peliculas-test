@@ -1,0 +1,9 @@
+.Icon-Container {
+    width: 20px;
+    margin: 2px;
+    display: inline-block;
+}
+
+.Icon { 
+    height: 12px;
+}

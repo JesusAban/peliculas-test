@@ -1,0 +1,52 @@
+.Header-Container {
+    background-color: #032541;
+    height: 40px;
+    padding: 10px 0px;
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0px 0px 7px #000;
+}
+
+.NavBar {
+    height: 40px;
+    float: right;
+    margin-right: 10px;
+}
+
+.NavBar > ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.NavBar > ul > li {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+}
+
+.NavBar > ul > li > a {
+    text-decoration: none;
+    white-space: nowrap;
+    color: #FFF;
+    vertical-align: middle;
+    display: inline-block;
+    height: 40px;
+    padding: 5px;
+}
+
+.NavBar > ul > li:hover {
+    background-color: #5D7485;
+    cursor: pointer;
+}
+
+.NavBar > ul > li > a:hover {
+    height: 100%;
+}
+
+.NavBar > ul > li.Menu-Selected {
+    background-color: #214E72;
+}

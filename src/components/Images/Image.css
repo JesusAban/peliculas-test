@@ -1,0 +1,13 @@
+.Logo-Container {
+    padding-left: 10px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 0;
+}
+
+.Logo {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
