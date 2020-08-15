@@ -40,7 +40,7 @@ function MenuItem(props){
 }
 
 MenuItem.propTypes = {
-    menu: PropTypes.element,
+    menu: PropTypes.object,
     mobile: PropTypes.bool
 };
 

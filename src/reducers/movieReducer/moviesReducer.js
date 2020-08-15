@@ -1,7 +1,7 @@
 import * as actionTypes from 'src/actions';
 
 const defaultState = {
-    movies: []
+    movies: [],
 };
 
 const moviesReducer = (state = defaultState, action) => {

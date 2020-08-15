@@ -1,0 +1,72 @@
+.Card-Movie {
+    height: 25em;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0px;
+    width: calc(100% - 20px);
+    border-radius: 1em;
+}
+
+.Card-Movie-Body {
+    height: 25em;
+    display: inline-block;
+    z-index: 80;
+    position: relative;
+}
+
+.Card-Movie-Footer {
+    background-color: #000;
+    opacity: 0.5;
+    bottom: 0;
+    z-index: 90;
+    border-radius: 0 0 1em 1em;
+    min-height: 6em;
+    max-height: 25em;
+    position: absolute;
+    width: 100%;
+}
+
+.Card-Movie-Footer-Info-Release .H-Container .H2-Text{
+    padding-left: 0.5em;
+    text-align: left;
+}
+
+.Card-Movie-Footer-Title, .Card-Movie-Footer-Title .H-Container, .Card-Movie-Footer-Title .H-Container .H2-Text {
+    min-height: 3em;
+    vertical-align: middle;
+}
+
+.Card-Movie-Footer-Title .H-Container .H2-Text{
+    text-align: left;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.Card-Movie-Footer-Title .H-Container .H2-Text, .Card-Movie-Footer-Info .H-Container .H2-Text{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    color: #FFF;
+    height: 100%;
+}
+
+.Card-Movie-Footer-Info {
+    display: inline-block;
+    width: 100%;
+    bottom: 0px;
+}
+
+.Card-Movie-Footer-Info-Release {
+    width: 60%;
+    float: left;
+}
+
+.Card-Movie-Footer-Info-Rate {
+    width: 40%;
+    float: left;
+}
+
+.Card-Movie-Footer-Info-Rate .H-Container .H2-Text{
+    text-align: right;
+    padding-right: 0.5em;
+}

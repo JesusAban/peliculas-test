@@ -1,0 +1,8 @@
+.H-Container{
+    width: 100%;
+    vertical-align: middle;
+}
+
+.H1-Text, .H2-Text, .H3-Text{
+    text-align: center;
+}

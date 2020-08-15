@@ -1,0 +1,8 @@
+.Poster-Movie-Image-Container, .Poster-Movie-Image {
+    height: 25em;
+}
+
+.Poster-Movie-Image{
+    width: 100%;
+    border-radius: 1em;
+}

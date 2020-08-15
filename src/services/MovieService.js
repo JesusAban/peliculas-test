@@ -1,17 +1,32 @@
 import axios from 'axios/index';
-import { API_BASE, PARAM_API_KEY } from 'src/constants/Config';
+import { 
+    API_BASE, 
+    PARAMS_DEFAULT 
+} from 'src/constants/Config';
 
-const API = API_BASE + "/movie/now_playing";
+const API = API_BASE + "/movie";
 
 class MovieService {
 
     getNowPlaying(){
         return axios({
             method: 'GET',
-            url: `${API}?${ PARAM_API_KEY }`,
-            headers: {
-				'content-type': 'multipart/form-data'
-			},
+            url: `${ API }/now_playing`,
+            params: PARAMS_DEFAULT,
+            transformResponse(data) {
+                if(data){
+                    data = JSON.parse(data);
+                }
+                return data;
+            }
+        });
+    }
+
+    getMovieDetails(id){
+        return axios({
+            method: 'GET',
+            url: `${ API }/${ id }`,
+            params: PARAMS_DEFAULT,
             transformResponse(data) {
                 if(data){
                     data = JSON.parse(data);

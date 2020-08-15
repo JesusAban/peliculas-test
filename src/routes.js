@@ -27,7 +27,7 @@ export default [
             {
                 path: '/movies/:id',
                 exact: true,
-                component: lazy(() => import('src/views/Movies/MoviesDetails'))
+                component: lazy(() => import('src/views/Movies/MovieDetails'))
             },
             {
                 path: '/statistics',

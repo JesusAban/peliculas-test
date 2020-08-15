@@ -1,11 +1,45 @@
-@media only screen and (max-width: 992px) {
+.Col {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 991px) {
   .Hide-md {
     display: none;
   }
 }
 
-@media only screen and (min-width: 993px) {
+@media only screen and (min-width: 992px) {
   .Hide-lg {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .Col {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+  .Col {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 720px) and (max-width: 991px){
+  .Col {
+    width: 33.33%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+  .Col {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Col {
+    width: 20%
   }
 }
