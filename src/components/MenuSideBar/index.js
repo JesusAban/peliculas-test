@@ -6,9 +6,9 @@ import SideBar from 'src/components/SideBar';
 import SideBarTitle from 'src/components/SideBar/SideBarTitle';
 import SideBarBody from 'src/components/SideBar/SideBarBody';
 import MenuItem from 'src/components/Menu/MenuItem';
+import { Logo } from 'src/components/Images';
 //Estilos
 import './MenuSideBar.css';
-import { Logo } from 'src/components/Images';
 
 function MenuSideBar(props){
 

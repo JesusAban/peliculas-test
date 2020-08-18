@@ -10,7 +10,7 @@ import MenuSideBar from 'src/components/MenuSideBar';
 function Layout ({ route }){
 
     const LoadingMessage = () => (
-        "I'm loading..."
+        "Cargando..."
     );
 
     return (

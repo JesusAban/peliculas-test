@@ -1,4 +1,5 @@
 import React from 'react';
+//Styles
 import './H.css';
 
 function H2(props){

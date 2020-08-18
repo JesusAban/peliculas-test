@@ -2,7 +2,8 @@ import * as actionTypes from 'src/actions';
 
 const defaultState = {
     imageURL: null,
-    size: null
+    posterSize: null,
+    backdropSize: null
 };
 
 const getDefaultState = () => {
@@ -26,7 +27,8 @@ const movieConfigurationReducer = (state = getDefaultState(), action) => {
             return {
                 ...state,
                 imageURL: payload.imageURL,
-                size: payload.size
+                posterSize: payload.posterSize,
+                backdropSize: payload.backdropSize
             };
         }
 
@@ -38,7 +40,8 @@ const movieConfigurationReducer = (state = getDefaultState(), action) => {
             return {
                 ...state,
                 imageURL: payload.imageURL,
-                size: payload.size
+                posterSize: payload.posterSize,
+                backdropSize: payload.backdropSize
             };
         }
 

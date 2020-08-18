@@ -1,10 +1,17 @@
 import React from 'react';
+//Components
+import Card from 'src/components/Card';
+import CardHeader from 'src/components/Card/CardHeader';
+import H1 from 'src/components/Typography/H1';
 
 function Overview(){
+    
     return (
-        <div>
-            <h1>Welcome to test</h1>
-        </div>
+        <Card>
+            <CardHeader>
+                <H1 text="Bienvenido"></H1>
+            </CardHeader>
+        </Card>
     );
 }
 

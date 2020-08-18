@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 //Components
 import Card from 'src/components/Card';
 import CardHeader from 'src/components/Card/CardHeader';
@@ -13,6 +13,7 @@ import { getNowPlaying, getConfigurations } from 'src/actions';
 function Movies(){
 
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
 
     const moviesSelector = useSelector((state) => state.movies);
 
@@ -21,32 +22,47 @@ function Movies(){
     }, []);
 
     const init = () => {
+        setLoading(true);
         dispatch(getConfigurations())
             .then((success) => {
                 loadMovies(success);
+            }).catch((error) => {
+                setLoading(false);
             });
     };
 
     const loadMovies = (configuration) => {
         let imageURL = null;
         if(configuration && configuration.imageURL) {
-            imageURL = configuration.imageURL + configuration.size;
+            imageURL = `${configuration.imageURL}${configuration.posterSize}`;
         }
 
-        dispatch(getNowPlaying(imageURL));
+        dispatch(getNowPlaying(imageURL))
+            .then((success) => {
+                setLoading(false);
+            })
+            .catch((error) => {
+                setLoading(false);
+            });
     };
 
     const Cards = () => {
-        if(moviesSelector && moviesSelector.movies && moviesSelector.movies.length > 0){
-            let movies = moviesSelector.movies;
-            return movies.map((movie, index) => (
-                <div className="Col" key={ index }>
-                    <CardMovie movie={ movie } key={ index }/>
-                </div>
-            ));
+        if(!loading){
+            if(moviesSelector && moviesSelector.movies && moviesSelector.movies.length > 0){
+                let movies = moviesSelector.movies;
+                return movies.map((movie, index) => (
+                    <div className="Col" key={ index }>
+                        <CardMovie movie={ movie } key={ index }/>
+                    </div>
+                ));
+            } else {
+                return (
+                    <H3 text="Sin películas" />
+                );
+            }
         } else {
             return (
-                <H3 text="Sin películas" />
+                <H3 text="Cargando..." />
             );
         }
     };

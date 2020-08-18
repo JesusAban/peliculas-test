@@ -3,7 +3,7 @@
     display: inline-block;
     cursor: pointer;
     padding: 0px;
-    width: calc(100% - 20px);
+    width: calc(100% - 10px);
     border-radius: 1em;
 }
 
@@ -54,15 +54,32 @@
     display: inline-block;
     width: 100%;
     bottom: 0px;
+    height: 1.5em;
+    margin-bottom: 5px;
 }
 
 .Card-Movie-Footer-Info-Release {
-    width: 60%;
+    width: 65%;
     float: left;
+    height: inherit;
 }
 
 .Card-Movie-Footer-Info-Rate {
-    width: 40%;
+    width: 35%;
+    float: left;
+    height: inherit;
+}
+
+.Card-Movie-Footer-Info-Rate .Image-Container {
+    height: inherit;
+    width: 1.5em;
+}
+
+.Card-Movie-Footer-Info-Rate .H-Container {
+    width: calc(100% - 2.3em);
+}
+
+.Card-Movie-Footer-Info-Rate .Image-Container, .Card-Movie-Footer-Info-Rate .H-Container{
     float: left;
 }
 

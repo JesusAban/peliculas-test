@@ -1,16 +1,16 @@
 import React from 'react';
 //Components
-import logo from 'src/images/logo.svg';
+import notFound from 'src/images/404Error.png';
 import BaseImage from './BaseImage';
 
-function LogoImage (props){
+function NotFoundImage (props){
 
     return (
         <BaseImage 
-            image={ logo } 
+            image={ notFound }
             { ...props }
         />
     );
 }
 
-export default LogoImage;
+export default NotFoundImage;

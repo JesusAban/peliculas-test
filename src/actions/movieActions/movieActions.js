@@ -12,8 +12,8 @@ export const getMovieDetails = (id, imageURL) => (dispatch) => {
 
                     let posterPath = null;
                     
-                    if(imageURL && data.poster_path){
-                        posterPath = imageURL + data.poster_path;
+                    if(imageURL && data.backdrop_path){
+                        posterPath = imageURL + data.backdrop_path;
                     }
 
                     let movie = {
@@ -23,18 +23,18 @@ export const getMovieDetails = (id, imageURL) => (dispatch) => {
                         genres: data.genres,
                         description: data.overview,
                         runtime: data.runtime,
-                        releaseDate: data.release_date,
+                        releaseDate: new Date(data.release_date),
                         average: data.vote_average
                     };
                     dispatch(cleanMovie());
                     dispatch({ type: LOAD_MOVIE, payload: movie });
                     resolve(true);
                 } else {
-                    reject();
+                    reject("No se encontró la película");
                 }
             })
             .catch((error) => {
-                reject();
+                reject("Error de conexión con el servicio");
             });
     });
 };

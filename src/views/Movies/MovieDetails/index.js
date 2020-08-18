@@ -2,18 +2,22 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 //Routes
 import { useHistory } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
-
+//Components
 import CardHeader from 'src/components/Card/CardHeader';
 import CardFooter from 'src/components/Card/CardFooter';
-import { getMovieDetails } from 'src/actions/movieActions/movieActions';
 import { Back } from 'src/components/Buttons';
 import Card from 'src/components/Card';
 import CardBody from 'src/components/Card/CardBody';
 import H1 from 'src/components/Typography/H1';
 import H3 from 'src/components/Typography/H3';
 import Label from 'src/components/Typography/Label';
-
+import { BackdropMovie } from 'src/components/Images';
+//Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovieDetails } from 'src/actions/movieActions/movieActions';
+//Utils
+import { longDate } from 'src/utils/dateUtils';
+//Styles
 import './MovieDetails.css';
 
 function MovieDetails({ match }){
@@ -29,13 +33,21 @@ function MovieDetails({ match }){
     useEffect(() => {
         if(id !== null){
             let movieId = parseInt(id);
-            let baseURL = `${movieConfigurationSelector.imageURL}/w1280`;//${movieConfigurationSelector.size}
+            let baseURL = `${movieConfigurationSelector.imageURL}${movieConfigurationSelector.backdropSize}`;
             if(movie !== null && movie.id !== null){
                 if(movieId !== movie.id){
-                    dispatch(getMovieDetails(movieId, baseURL));    
+                    dispatch(getMovieDetails(movieId, baseURL))
+                        .then((sucess) => {})
+                        .catch((error) => {
+                            history.push("/errors/error-404");
+                        });    
                 }
             } else {
-                dispatch(getMovieDetails(movieId, baseURL));
+                dispatch(getMovieDetails(movieId, baseURL))
+                    .then((sucess) => {})
+                    .catch((error) => {
+                        history.push("/errors/error-404");
+                    });
             }
         }
     }, []);
@@ -47,23 +59,31 @@ function MovieDetails({ match }){
     const getGenres = (genres) => {
         let genresText = genres.map((genre) => (genre.name));
 
-        return genresText.toString();
+        return genresText.join(', ').toString();
+    };
+
+    const BackgroundImage = () => {
+        let image = null;
+        if(movie.poster) {
+            image = movie.poster;
+        }
+        return <BackdropMovie src={ image }/>;
     };
 
     return (
         <div className="Movie-Detail-Container">
             <Card>
                 <CardHeader>
-                    <img src={ movie.poster } alt={ `Movie-${ movie.id }` } className="Movie-Detail-Poster"/>
+                    <BackgroundImage />
                 </CardHeader>
                 <CardBody>
                     <div className="Movie-Detail-Title">
                         <H1 text={ movie.title } />
                     </div>
                     <H3 text="Duración"/>
-                    <Label text={ movie.runtime }/>
+                    <Label text={`${movie.runtime} min`}/>
                     <H3 text="Fecha de estreno"/>
-                    <Label text={ movie.releaseDate }/>
+                    <Label text={ longDate(movie.releaseDate) }/>
                     <H3 text="Calificación"/>
                     <Label text={ movie.average }/>
                     <H3 text="Generos"/>
@@ -72,7 +92,7 @@ function MovieDetails({ match }){
                     <Label text={ movie.description }/>
                 </CardBody>
                 <CardFooter>
-                    <Back onClick={ onBack } text="Regresar" />
+                    <Back onClick={ onBack } title="Regresar" className="Btn-Back"/>
                 </CardFooter>
             </Card>
         </div>

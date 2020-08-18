@@ -6,9 +6,12 @@ import Card from 'src/components/Card';
 import CardBody from 'src/components/Card/CardBody';
 import H2 from 'src/components/Typography/H2';
 import PosterMovieImage from 'src/components/Images/PosterMovieImage';
+import StarImage from 'src/components/Images/StarImage';
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovieDetails } from 'src/actions';
+//Utils
+import { shortDate } from 'src/utils/dateUtils';
 //Styles
 import './CardMovie.css';
 
@@ -22,7 +25,7 @@ function CardMovie(props) {
     const history = useHistory();
 
     const onClick = () => {
-        let baseURL = movieConfigurationSelector.imageURL + movieConfigurationSelector.size;
+        let baseURL = movieConfigurationSelector.imageURL + movieConfigurationSelector.backdropSize;
         dispatch(getMovieDetails(movie.id, baseURL))
             .then((success) => {
                 history.push("/movies/" + movie.id);
@@ -50,9 +53,10 @@ function CardMovie(props) {
                     </div>
                     <div className="Card-Movie-Footer-Info">
                         <div className="Card-Movie-Footer-Info-Release">
-                            <H2 text={ movie.releaseDate } />
+                            <H2 text={ shortDate(movie.releaseDate) } />
                         </div>
                         <div className="Card-Movie-Footer-Info-Rate">
+                            <StarImage />
                             <H2 text={ movie.average } />
                         </div>
                     </div>

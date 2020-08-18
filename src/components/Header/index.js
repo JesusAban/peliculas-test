@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Logo } from 'src/components/Images';
 import NavBar from './NavBar';
 import MenuButton from 'src/components/Buttons/MenuButton';
-import MenuSideBar from '../MenuSideBar';
+import MenuSideBar from 'src/components/MenuSideBar';
 
 function Header() {
 
@@ -18,11 +18,13 @@ function Header() {
     };
 
     return (
-        <header className="Header-Container">
-            <MenuButton onClick={ onOpenSideBar } />
-            <MenuSideBar show={ showSideBar } onClick={ onCloseSideBar }/>
-            <Logo />
-            <NavBar />
+        <header className="Header">
+            <div className="Header-Container">
+                <MenuButton onClick={ onOpenSideBar } />
+                <MenuSideBar show={ showSideBar } onClick={ onCloseSideBar }/>
+                <Logo />
+                <NavBar />
+            </div>
         </header>
     );
 }

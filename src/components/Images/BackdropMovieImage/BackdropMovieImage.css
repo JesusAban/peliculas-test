@@ -1,0 +1,9 @@
+.Backdrop-Movie-Image-Container, .Backdrop-Movie-Image {
+    height: 25em;
+    width: 100%;
+}
+
+.Backdrop-Movie-Image {
+    object-fit: cover;
+    object-position: top;
+}

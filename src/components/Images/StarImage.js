@@ -1,16 +1,16 @@
 import React from 'react';
 //Components
-import logo from 'src/images/logo.svg';
+import star from 'src/images/star.png';
 import BaseImage from './BaseImage';
 
-function LogoImage (props){
+function StarImage (props){
 
     return (
         <BaseImage 
-            image={ logo } 
+            image={ star }
             { ...props }
         />
     );
 }
 
-export default LogoImage;
+export default StarImage;

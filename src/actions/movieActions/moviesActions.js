@@ -7,7 +7,7 @@ export const getNowPlaying = (imageURL) => (dispatch) => {
     return new Promise((resolve, reject) => {
         MovieService.getNowPlaying()
             .then((response) => {
-                if(response.data && response.data.results) {
+                if(response.data && response.data.results && response.data.results.length > 0) {
                     let data = response.data;
                     let movies = data.results.map((movieResponse) => {
                         let posterPath = null;
@@ -21,17 +21,19 @@ export const getNowPlaying = (imageURL) => (dispatch) => {
                             name: movieResponse.title,
                             average: movieResponse.vote_average,
                             poster: posterPath,
-                            releaseDate: movieResponse.release_date
+                            releaseDate: new Date(movieResponse.release_date)
                         };
                     });
 
                     dispatch(removeMovies());
                     dispatch({ type: LOAD_MOVIES, payload: movies });
+                    resolve(true);
+                } else {
+                    reject("No se encontraron películas");
                 }
-                resolve();
             })
             .catch((error) => {
-                reject();
+                reject("Error de conexión con el Servicio [Movies]");
             });
     });
 };

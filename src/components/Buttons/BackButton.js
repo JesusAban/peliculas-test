@@ -9,7 +9,7 @@ function BackButton(props) {
 
     return (
         <DefaultButton 
-            className="Menu-Button"
+            className="Btn-Back"
             icon={ <Back /> }
             { ...props }
         />

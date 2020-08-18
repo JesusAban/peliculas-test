@@ -12,12 +12,12 @@ export default [
         icon: <Home />
     },
     {
-        header: "Movies",
+        header: "Películas",
         href: '/movies',
         icon: <Movie />
     },
     {
-        header: "Statistics",
+        header: "Estadísticos",
         href: '/statistics',
         icon: <Statistics />
     }

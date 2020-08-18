@@ -1,0 +1,18 @@
+.Error-Container .Image-Container{
+    height: 50vh;
+    margin: 0 auto;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.Error-Container .Image-Container .Image{
+    margin: 0 auto;
+}
+
+.Error-Container .Btn-Back {
+    width: 10em;
+    text-align: center;
+    margin: 0 auto;
+}

@@ -8,7 +8,7 @@ function Card (props){
     const { className } = props;
     const { onClick } = props;
     
-    let clases = `Card-Container ${ className ? className : '' }`;
+    let clases = `Card-Container${ className ? ' ' + className : '' }`;
     
     return (
         <div className={ clases } onClick={ onClick }>

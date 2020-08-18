@@ -9,20 +9,22 @@ export const getConfigurations = () => (dispatch) => {
             .then((response) => {
                 if(response.data && response.data.images) {
                     let data = response.data.images;
-                    let filter = data.logo_sizes ? data.logo_sizes.filter((item) => item === "w500") : null;
+                    let posterFilter = data.logo_sizes ? data.poster_sizes.filter((item) => item === "w342") : null;
+                    let backdropFilter = data.backdrop_sizes ? data.backdrop_sizes.filter((item) => item === "original") : null;
                     let configuration = {
                         imageURL: data.base_url,
-                        size: filter && filter.length > 0 ? filter[0] : data.logo_sizes[0]
+                        posterSize: posterFilter && posterFilter.length > 0 ? posterFilter[0] : data.poster_sizes[0],
+                        backdropSize: backdropFilter && backdropFilter.length > 0 ? backdropFilter[0] : data.backdrop_sizes[0]
                     };
                     dispatch(cleanConfigurations());
                     dispatch({ type: LOAD_CONFIGURATIONS, payload: configuration });
                     resolve(configuration);
                 } else {
-                    reject();
+                    reject("No se encontraron resultados para la configuración");
                 }
             })
             .catch((error) => {
-                reject();
+                reject("Error de conexión con el Servicio [Configuration]");
             });
     });
 };

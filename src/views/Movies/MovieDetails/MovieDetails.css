@@ -1,4 +1,12 @@
 .Movie-Detail-Poster{
-    height: 20em;
+    height: 25em;
     width: 100%;
+}
+
+.Movie-Detail-Container .Label-Container {
+    margin-top: -1.2em;
+}
+
+.Movie-Detail-Container .H-Container .H1-Text, .Movie-Detail-Container .H-Container .H3-Text{
+    text-align: left;
 }

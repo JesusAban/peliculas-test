@@ -1,4 +1,4 @@
-.Logo-Container {
+.Image-Container {
     padding-left: 10px;
     height: 30px;
     display: inline-block;
@@ -6,16 +6,8 @@
     margin: 5px 0;
 }
 
-.Logo {
+.Image {
     height: 100%;
     display: inline-block;
     vertical-align: middle;
-}
-
-.Default-Image-Container {
-
-}
-
-.Default-Image{
-    
 }
